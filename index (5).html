@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supriya Bommisetty — Data Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F7F5F0;--bg2:#EFECEA;--surface:#FFFFFF;
+  --accent:#1A6B52;--accent-light:#E8F5EF;
+  --accent2:#5046A6;--accent2-light:#EDECF9;
+  --text:#1A1A1A;--muted:#6B6860;--border:#E0DDD8;
+  --display:'Fraunces',serif;--body:'Plus Jakarta Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(247,245,240,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:var(--display);font-size:17px;font-weight:600;color:var(--text);letter-spacing:-0.01em;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-btn{padding:0.5rem 1.25rem;background:var(--accent);color:#fff;border:none;border-radius:100px;font-family:var(--body);font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;transition:opacity 0.2s;}
+.nav-btn:hover{opacity:0.85;}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 3rem 5rem;max-width:1100px;margin:0 auto;position:relative;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent);font-family:var(--mono);font-size:11px;padding:6px 14px;border-radius:100px;margin-bottom:2rem;letter-spacing:0.04em;}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 2s infinite;}
+h1{font-family:var(--display);font-size:clamp(3rem,6vw,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem;max-width:800px;}
+h1 em{font-style:italic;color:var(--accent);font-weight:300;}
+.hero-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7;font-weight:300;margin-bottom:3rem;}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:5rem;}
+.btn-fill{padding:0.85rem 2rem;background:var(--accent);color:#fff;border:none;border-radius:100px;font-family:var(--body);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:opacity 0.2s;}
+.btn-fill:hover{opacity:0.85;}
+.btn-outline{padding:0.85rem 2rem;background:transparent;color:var(--text);border:1.5px solid var(--border);border-radius:100px;font-family:var(--body);font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:border-color 0.2s;}
+.btn-outline:hover{border-color:var(--text);}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.hstat{background:var(--surface);padding:1.5rem;text-align:center;}
+.hstat-num{font-family:var(--display);font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1;}
+.hstat-label{font-size:12px;color:var(--muted);margin-top:4px;font-weight:400;}
+.about-strip{background:var(--accent);color:#fff;padding:5rem 3rem;}
+.about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.about-quote{font-family:var(--display);font-size:1.9rem;font-weight:300;font-style:italic;line-height:1.4;letter-spacing:-0.01em;}
+.about-quote strong{font-weight:700;font-style:normal;}
+.about-body{font-size:15px;line-height:1.8;opacity:0.88;font-weight:300;}
+.about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.5rem;}
+.chip{padding:5px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:100px;font-size:12px;font-weight:500;color:#fff;}
+.section{padding:6rem 3rem;max-width:1100px;margin:0 auto;}
+.section-label{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;}
+h2{font-family:var(--display);font-size:2.4rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:3rem;line-height:1.15;}
+h2 em{font-style:italic;font-weight:300;color:var(--muted);}
+.exp-timeline{position:relative;padding-left:2rem;}
+.exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border);}
+.exp-entry{position:relative;padding:0 0 3rem 2.5rem;}
+.exp-entry::before{content:'';position:absolute;left:-5px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+.exp-entry:last-child{padding-bottom:0;}
+.exp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:0.5rem;flex-wrap:wrap;}
+.exp-title{font-family:var(--display);font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;}
+.exp-period{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--bg2);padding:4px 10px;border-radius:100px;white-space:nowrap;}
+.exp-company{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:0.75rem;}
+.exp-desc{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:1rem;}
+.exp-pills{display:flex;flex-wrap:wrap;gap:6px;}
+.epill{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:500;}
+.epill-green{background:var(--accent-light);color:var(--accent);}
+.epill-purple{background:var(--accent2-light);color:var(--accent2);}
+.epill-gray{background:var(--bg2);color:var(--muted);}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:box-shadow 0.2s,border-color 0.2s;position:relative;overflow:hidden;}
+.proj-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.08);border-color:var(--accent);}
+.proj-tag{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem;}
+.proj-name{font-family:var(--display);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.01em;}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:1.25rem;}
+.proj-stack{display:flex;flex-wrap:wrap;gap:5px;}
+.proj-chip{font-size:11px;padding:3px 9px;background:var(--bg2);color:var(--muted);border-radius:100px;font-weight:500;}
+.proj-metric{position:absolute;top:1.5rem;right:1.5rem;font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--accent);opacity:0.12;}
+.skills-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.skill-block{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem;}
+.skill-block-title{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1rem;font-family:var(--mono);}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.stag{font-size:12px;padding:5px 11px;border-radius:100px;background:var(--bg2);color:var(--text);font-weight:500;}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;}
+.edu-degree{font-family:var(--display);font-size:1.1rem;font-weight:700;margin-bottom:0.25rem;}
+.edu-school{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:0.25rem;}
+.edu-period{font-family:var(--mono);font-size:11px;color:var(--muted);}
+.cert-row{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.cert-item{display:flex;align-items:center;gap:1rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;}
+.cert-dot{width:40px;height:40px;border-radius:10px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--accent);font-weight:500;flex-shrink:0;}
+.cert-name{font-size:13px;font-weight:600;}
+.cert-issuer{font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:2px;}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.testi-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:1rem;}
+.testi-quote{font-family:var(--display);font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--text);flex:1;}
+.testi-quote::before{content:'\201C';font-size:2.5rem;color:var(--accent);line-height:0;vertical-align:-0.6rem;margin-right:4px;font-style:normal;}
+.testi-author{border-top:1px solid var(--border);padding-top:1rem;display:flex;align-items:center;gap:0.75rem;}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--accent);flex-shrink:0;}
+.testi-name{font-size:13px;font-weight:600;}
+.testi-role{font-size:12px;color:var(--muted);}
+.contact-wrap{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.contact-heading{font-family:var(--display);font-size:2rem;font-weight:700;line-height:1.2;letter-spacing:-0.02em;margin-bottom:1rem;}
+.contact-heading em{font-style:italic;color:var(--accent);font-weight:300;}
+.contact-sub{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:2rem;}
+.contact-links{display:flex;flex-direction:column;gap:0.75rem;}
+.clink{display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1.25rem;border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:border-color 0.2s,background 0.2s;}
+.clink:hover{border-color:var(--accent);background:var(--accent-light);}
+.clink-label{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
+.clink-val{font-size:13px;font-weight:500;color:var(--text);}
+footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;}
+.footer-name{font-family:var(--display);font-size:14px;font-weight:600;color:var(--muted);}
+.footer-right{font-family:var(--mono);font-size:11px;color:var(--muted);}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-in.visible{opacity:1;transform:none;}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}.nav-links{display:none;}
+  .hero{padding:6rem 1.5rem 3rem;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .about-inner,.projects-grid,.skills-wrap,.edu-grid,.testi-grid,.contact-wrap{grid-template-columns:1fr;}
+  .section{padding:4rem 1.5rem;}
+  .cert-row{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:0.5rem;padding:1.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">Supriya <span>Bommisetty</span></div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+    <a href="resume.pdf" download class="nav-btn">Download CV</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Available for new opportunities · Philadelphia, PA</div>
+  <h1>Data Engineer<br>building <em>pipelines</em><br>that scale.</h1>
+  <p class="hero-sub">5+ years turning raw, chaotic data into clean, analytics-ready platforms. I specialize in end-to-end data infrastructure — from ingestion to BI — across healthcare, marketing, and hospitality.</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-fill">Let's connect</a>
+    <a href="#projects" class="btn-outline">See my work</a>
+    <a href="resume.pdf" download class="btn-outline">Download CV</a>
+  </div>
+  <div class="hero-stats fade-in">
+    <div class="hstat"><div class="hstat-num">5+</div><div class="hstat-label">Years experience</div></div>
+    <div class="hstat"><div class="hstat-num">200+</div><div class="hstat-label">ETL jobs migrated</div></div>
+    <div class="hstat"><div class="hstat-num">40%</div><div class="hstat-label">Pipeline runtime cut</div></div>
+    <div class="hstat"><div class="hstat-num">99.9%</div><div class="hstat-label">Data accuracy SLA</div></div>
+  </div>
+</div>
+
+<div class="about-strip">
+  <div class="about-inner">
+    <div class="about-quote">"I don't just move data — I build the <strong>infrastructure</strong> that makes it trustworthy, fast, and useful."</div>
+    <div>
+      <p class="about-body">I'm Supriya Bommisetty, a Data Engineer with a Master's in Data Science from Rowan University. My background spans healthcare (HIPAA-compliant pipelines at Optum), marketing analytics (real-time ETL at Kyros), and hospitality intelligence (centralized data warehouse at Schulson Collective). I love solving the hard problems — data quality, governance, pipeline performance, and making data teams move faster.</p>
+      <div class="about-chips">
+        <span class="chip">Databricks Certified</span>
+        <span class="chip">Neo4j Certified</span>
+        <span class="chip">MS Data Science</span>
+        <span class="chip">HIPAA Compliant</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="experience">
+  <div class="section-label fade-in">01 — Experience</div>
+  <h2 class="fade-in">Where I've <em>built</em></h2>
+  <div class="exp-timeline">
+    <div class="exp-entry fade-in">
+      <div class="exp-top"><div class="exp-title">Data Warehouse Engineer</div><div class="exp-period">Sept 2025 — Present</div></div>
+      <div class="exp-company">Schulson Collective · Philadelphia, PA</div>
+      <p class="exp-desc">Designed and deployed a centralized data warehouse integrating 10+ internal and external sources. Built Bronze–Silver–Gold lakehouse layers supporting real-time BI dashboards, financial reporting, and predictive analytics. Implemented data lineage, governance policies, and AI/ML-ready pipelines.</p>
+      <div class="exp-pills">
+        <span class="epill epill-green">60% less manual effort</span>
+        <span class="epill epill-green">2× faster data delivery</span>
+        <span class="epill epill-green">20% cloud cost savings</span>
+        <span class="epill epill-green">99.99% uptime</span>
+        <span class="epill epill-gray">AWS · Databricks · Spark · Airflow · DynamoDB</span>
+      </div>
+    </div>
+    <div class="exp-entry fade-in">
+      <div class="exp-top"><div class="exp-title">ETL Developer</div><div class="exp-period">Jul 2024 — Sept 2025</div></div>
+      <div class="exp-company">Kyros Software Solutions</div>
+      <p class="exp-desc">Migrated 200+ legacy ETL jobs from Teradata to Snowflake. Automated ingestion workflows with Python and AWS Lambda. Enabled real-time data ingestion from APIs for near-instant customer engagement analytics. Integrated CI/CD with Git and Jenkins.</p>
+      <div class="exp-pills">
+        <span class="epill epill-green">40% runtime reduction</span>
+        <span class="epill epill-green">35% less manual ops</span>
+        <span class="epill epill-green">50% faster dev cycles</span>
+        <span class="epill epill-gray">Talend · Snowflake · Informatica · Python · Lambda</span>
+      </div>
+    </div>
+    <div class="exp-entry fade-in">
+      <div class="exp-top"><div class="exp-title">Senior Software Engineer</div><div class="exp-period">May 2022 — Aug 2022</div></div>
+      <div class="exp-company">Optum · Hyderabad, India</div>
+      <p class="exp-desc">Engineered scalable ETL pipelines using Datastage, Talend, and AWS Glue. Designed metadata-driven frameworks for multi-environment deployment. Ensured HIPAA compliance across all data pipelines. Improved pipeline throughput by 3× through partitioning and parallelism strategies.</p>
+      <div class="exp-pills">
+        <span class="epill epill-purple">3× throughput</span>
+        <span class="epill epill-purple">40% fewer job failures</span>
+        <span class="epill epill-purple">HIPAA compliant</span>
+        <span class="epill epill-gray">Datastage · Talend · AWS Glue · TWS · Redshift</span>
+      </div>
+    </div>
+    <div class="exp-entry fade-in">
+      <div class="exp-top"><div class="exp-title">Software Engineer</div><div class="exp-period">Apr 2020 — May 2022</div></div>
+      <div class="exp-company">Optum · Hyderabad, India</div>
+      <p class="exp-desc">Migrated on-prem pipelines to AWS Glue + S3, cutting infrastructure costs by 35%. Built API integrations for real-time ingestion, reducing reporting latency from hours to minutes. Secured pipelines with encryption and IAM roles for HIPAA compliance.</p>
+      <div class="exp-pills">
+        <span class="epill epill-purple">99.8% data accuracy</span>
+        <span class="epill epill-purple">35% infra cost cut</span>
+        <span class="epill epill-purple">60% faster incident response</span>
+        <span class="epill epill-gray">Python · SQL · AWS Glue · S3 · IAM</span>
+      </div>
+    </div>
+    <div class="exp-entry fade-in">
+      <div class="exp-top"><div class="exp-title">Associate Software Engineer</div><div class="exp-period">Aug 2018 — Apr 2020</div></div>
+      <div class="exp-company">Optum · Noida, India</div>
+      <p class="exp-desc">Automated ETL pipelines using Datastage and Talend. Developed Python-based log parsers to monitor pipeline performance. Built reconciliation frameworks to track critical financial KPIs.</p>
+      <div class="exp-pills">
+        <span class="epill epill-gray">25% faster data processing</span>
+        <span class="epill epill-gray">30% faster QA cycles</span>
+        <span class="epill epill-gray">Datastage · Talend · PL/SQL · Python</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--bg2);padding:6rem 0;" id="projects">
+  <div style="max-width:1100px;margin:0 auto;padding:0 3rem;">
+    <div class="section-label fade-in">02 — Projects</div>
+    <h2 class="fade-in">Things I've <em>shipped</em></h2>
+    <div class="projects-grid">
+      <div class="proj-card fade-in">
+        <div class="proj-metric">SC</div>
+        <div class="proj-tag">Data Platform</div>
+        <div class="proj-name">Sales Intelligence Dashboard</div>
+        <p class="proj-desc">Full-stack analytics platform integrating Resy, Tripleseat, and Toast data. Features GM review chat, Guest 360 tab, threaded feedback, and client-side pagination. Built on AWS Lambda, API Gateway, S3, DynamoDB, and Databricks.</p>
+        <div class="proj-stack"><span class="proj-chip">AWS Lambda</span><span class="proj-chip">DynamoDB</span><span class="proj-chip">Databricks</span><span class="proj-chip">API Gateway</span><span class="proj-chip">S3</span></div>
+      </div>
+      <div class="proj-card fade-in">
+        <div class="proj-metric">PO</div>
+        <div class="proj-tag">Internal Tooling</div>
+        <div class="proj-name">Purchase Order Approval System</div>
+        <p class="proj-desc">End-to-end PO request and approval web app with multi-role authentication, email notifications via SES, and Databricks integration. Deployed on AWS Amplify with Cognito user management and full audit trail.</p>
+        <div class="proj-stack"><span class="proj-chip">AWS Amplify</span><span class="proj-chip">Cognito</span><span class="proj-chip">SES</span><span class="proj-chip">Databricks</span><span class="proj-chip">Lambda</span></div>
+      </div>
+      <div class="proj-card fade-in">
+        <div class="proj-metric">200+</div>
+        <div class="proj-tag">ETL Migration</div>
+        <div class="proj-name">Teradata → Snowflake Migration</div>
+        <p class="proj-desc">Led migration of 200+ legacy ETL jobs from Teradata to Snowflake, reducing pipeline runtime by 40% and improving scalability. Integrated into CI/CD workflows with automated rollback capabilities.</p>
+        <div class="proj-stack"><span class="proj-chip">Snowflake</span><span class="proj-chip">Talend</span><span class="proj-chip">Jenkins</span><span class="proj-chip">Git</span><span class="proj-chip">Python</span></div>
+      </div>
+      <div class="proj-card fade-in">
+        <div class="proj-metric">3×</div>
+        <div class="proj-tag">Healthcare Data</div>
+        <div class="proj-name">HIPAA-Compliant Healthcare Data Platform</div>
+        <p class="proj-desc">Designed and maintained HIPAA-compliant ETL pipelines at Optum processing healthcare data at scale. Achieved 3× pipeline throughput via partitioning and parallelism, with IAM-secured access and full reconciliation frameworks.</p>
+        <div class="proj-stack"><span class="proj-chip">AWS Glue</span><span class="proj-chip">Redshift</span><span class="proj-chip">Datastage</span><span class="proj-chip">IAM</span><span class="proj-chip">TWS</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="skills">
+  <div class="section-label fade-in">03 — Skills</div>
+  <h2 class="fade-in">My <em>toolkit</em></h2>
+  <div class="skills-wrap">
+    <div class="skill-block fade-in"><div class="skill-block-title">Cloud & Infrastructure</div><div class="skill-tags"><span class="stag">AWS Glue</span><span class="stag">Lambda</span><span class="stag">S3</span><span class="stag">API Gateway</span><span class="stag">DynamoDB</span><span class="stag">Redshift</span><span class="stag">Amplify</span><span class="stag">Databricks</span></div></div>
+    <div class="skill-block fade-in"><div class="skill-block-title">ETL & Pipeline</div><div class="skill-tags"><span class="stag">Apache Spark</span><span class="stag">Talend</span><span class="stag">Informatica</span><span class="stag">Datastage</span><span class="stag">Airflow</span><span class="stag">GitHub Actions</span></div></div>
+    <div class="skill-block fade-in"><div class="skill-block-title">Data Warehousing</div><div class="skill-tags"><span class="stag">Snowflake</span><span class="stag">Delta Lake</span><span class="stag">Bronze/Silver/Gold</span><span class="stag">Redshift</span><span class="stag">Teradata</span></div></div>
+    <div class="skill-block fade-in"><div class="skill-block-title">Languages</div><div class="skill-tags"><span class="stag">Python</span><span class="stag">SQL</span><span class="stag">PL/SQL</span><span class="stag">Shell</span><span class="stag">JavaScript</span></div></div>
+    <div class="skill-block fade-in"><div class="skill-block-title">Governance & Quality</div><div class="skill-tags"><span class="stag">Data Lineage</span><span class="stag">HIPAA</span><span class="stag">Metadata-driven ETL</span><span class="stag">Reconciliation</span><span class="stag">Data Quality</span></div></div>
+    <div class="skill-block fade-in"><div class="skill-block-title">DevOps & Tooling</div><div class="skill-tags"><span class="stag">Git</span><span class="stag">Jenkins</span><span class="stag">CI/CD</span><span class="stag">TWS</span><span class="stag">Monitoring & Alerting</span><span class="stag">Cognito</span></div></div>
+  </div>
+</div>
+
+<div class="section" id="education">
+  <div class="section-label fade-in">04 — Education</div>
+  <h2 class="fade-in">Academic <em>foundation</em></h2>
+  <div class="edu-grid fade-in">
+    <div class="edu-card">
+      <div class="edu-degree">Master of Science — Data Science</div>
+      <div class="edu-school">Rowan University</div>
+      <div class="edu-period">Aug 2022 — May 2024 · Glassboro, NJ</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Engineering — Computer Science</div>
+      <div class="edu-school">VNR Vignana Jyothi Institute of Engineering & Technology</div>
+      <div class="edu-period">Hyderabad, India</div>
+    </div>
+  </div>
+  <div style="margin-top:2rem;">
+    <div class="section-label" style="margin-bottom:1rem;">Certifications</div>
+    <div class="cert-row fade-in">
+      <div class="cert-item"><div class="cert-dot">DB</div><div><div class="cert-name">Databricks Certified Data Engineer Associate</div><div class="cert-issuer">Databricks</div></div></div>
+      <div class="cert-item"><div class="cert-dot">N4J</div><div><div class="cert-name">Neo4j Certified Professional</div><div class="cert-issuer">Neo4j</div></div></div>
+      <div class="cert-item"><div class="cert-dot">SQL</div><div><div class="cert-name">SQL Code Challenges</div><div class="cert-issuer">LinkedIn Learning</div></div></div>
+      <div class="cert-item"><div class="cert-dot">GIT</div><div><div class="cert-name">Git Essential Training</div><div class="cert-issuer">LinkedIn Learning</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--bg2);padding:6rem 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 3rem;">
+    <div class="section-label fade-in">05 — Testimonials</div>
+    <h2 class="fade-in">What people <em>say</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card fade-in">
+        <div class="testi-quote">It's great working with her. She is a quick learner and logical thinker. She solved issues very quickly and was able to find the root cause faster. We worked in Oracle, Datastage and Talend technology.</div>
+        <div class="testi-author">
+          <div class="testi-avatar">VS</div>
+          <div><div class="testi-name">Vishal Srigadha</div><div class="testi-role">Software Engineering Lead · Optum</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-in">
+        <div class="testi-quote">Supriya was a backbone in the Finance Domain of Optum — she had knowledge of each and every process with even minute details. She helped me enormously on both the technical and business knowledge front, always having an answer to every query. Very hard working and had a solution to every problem we faced.</div>
+        <div class="testi-author">
+          <div class="testi-avatar">UT</div>
+          <div><div class="testi-name">Ujjwal Tyagi</div><div class="testi-role">SSE · Ex-Optum (UHG) · Finance Domain</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <div class="section-label fade-in">06 — Contact</div>
+  <div class="contact-wrap fade-in">
+    <div>
+      <div class="contact-heading">Let's build something <em>great</em> together</div>
+      <p class="contact-sub">Open to senior data engineering and platform engineering roles, as well as consulting on data architecture and pipeline modernization. Based in Philadelphia — open to remote and hybrid.</p>
+      <a href="resume.pdf" download class="btn-fill" style="display:inline-block;">Download my CV</a>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:supriyaft55@gmail.com" class="clink"><div><div class="clink-label">Email</div><div class="clink-val">supriyaft55@gmail.com</div></div></a>
+      <a href="tel:7323971905" class="clink"><div><div class="clink-label">Phone</div><div class="clink-val">(732) 397-1905</div></div></a>
+      <a href="https://www.linkedin.com/in/supriya-b-c" target="_blank" class="clink"><div><div class="clink-label">LinkedIn</div><div class="clink-val">linkedin.com/in/supriya-b-c</div></div></a>
+      <div class="clink" style="cursor:default;"><div><div class="clink-label">Location</div><div class="clink-val">Philadelphia, PA · Open to remote</div></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-name">Supriya Bommisetty · Data Engineer</div>
+  <div class="footer-right">© 2026 · Philadelphia, PA</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
